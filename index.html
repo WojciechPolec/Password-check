@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+
+<HEAD>
+    <meta charset="UTF-8">
+    <title>Kod pocztowy</title>
+    <link href="kaskada.css" rel="stylesheet" type="text/css" />
+</HEAD>
+
+<script language="JavaScript" type="text/javascript">
+        function view(){
+        var haslo=document.getElementById('txtVal').value;
+        var reg_liczba = new RegExp("[0-9]");
+        var valid = reg_liczba.test(haslo);
+        (valid) ? document.getElementById('liczba').style.backgroundColor="green" : document.getElementById('liczba').style.backgroundColor="red";
+        
+        var dl=haslo.length;
+        (dl>6) ? document.getElementById('sila').style.backgroundColor="green" : document.getElementById('sila').style.backgroundColor="red";
+
+        var reg_duzaL = new RegExp("[A-Z]");
+        var spr = reg_duzaL.test(haslo);
+        (spr) ? document.getElementById('duzaLitera').style.backgroundColor="green" : document.getElementById('duzaLitera').style.backgroundColor="red";
+
+        var reg_znaki = new RegExp("[^A-Z a-z 0-9]");
+        var spr2 = reg_znaki.test(haslo);
+        (spr2) ? document.getElementById('znak').style.backgroundColor="green" : document.getElementById('znak').style.backgroundColor="red";
+
+
+
+        }
+        
+    
+    </script>
+
+<BODY>
+
+    <article>
+        <legend>Ustaw hasło:</legend>
+        <input type="text" id="txtVal" onkeyup="view()" size="20" placeholder="Podaj hasło"><br />
+        <div>
+                <hr id="sila"><br>
+                <p>Siła hasła</p>
+        </div>
+        <div>
+                <hr id="liczba"><br>
+                <p>Zawiera liczbę</p>
+        </div>
+        <div>
+                <hr id="duzaLitera"><br>
+                <p>Zawiera dużą literę</p>
+        </div>
+        <div>
+                <hr id="znak"><br>
+                <p>Zawiera znak specjalny</p>
+        </div>
+        <input type="button" id="guzik" onclick="view()" value="Akcja"></input>
+    </article>
+
+</BODY>
+</HTML>
+
